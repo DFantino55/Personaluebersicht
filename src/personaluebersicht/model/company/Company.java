@@ -23,8 +23,11 @@ public class Company {
     }
 
     public String getDepartmentsName() {
-        //Unklar
-        return "";
+        String names = null;
+        for (Department entry: departments) {
+            names = names + ", " + entry.getName();
+        }
+        return names;
     }
 
     public void removeDepartment(int index) {

@@ -1,5 +1,8 @@
 package personaluebersicht.model.employees;
 
+import personaluebersicht.model.log.LogBook;
+import personaluebersicht.model.log.UserAction;
+
 public class HRPerson extends Person{
     private int modus;
     private String pwd;
@@ -9,8 +12,8 @@ public class HRPerson extends Person{
         this.modus = modus;
     }
 
-    public void change(Person person,int modus) {
-     //Unklar
+    public void change(HRPerson person,int modus) {
+       person.setModus(modus);
     }
 
     public void setModus(int modus) {
@@ -29,7 +32,8 @@ public class HRPerson extends Person{
         return pwd;
     }
 
-    public void writeLogEntry(Action action, Person person) {
-        //unklar
+    public void writeLogEntry(int action, Person person) {
+        UserAction userAction = new UserAction(this, person, action);
+        LogBook.getLogBookInstance().addEntry(userAction.getEntry());
     }
 }

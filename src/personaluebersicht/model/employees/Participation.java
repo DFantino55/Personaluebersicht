@@ -19,7 +19,6 @@ public class Participation {
     }
 
     public String getFunctionName(int index) {
-        //Potentielle Fehlerquelle
         return function.get(index).getJobFunction(index);
     }
 
@@ -36,7 +35,6 @@ public class Participation {
     }
 
     public String getTeamName(int index) {
-        //potentielle Fehlerquelle
         return teams.get(index).getTeam(index);
     }
 
